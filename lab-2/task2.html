@@ -114,6 +114,25 @@
                 cursor: default;
             }
 
+            .or-container {
+                display: flex;
+                align-items: center;
+                margin: 20px 0;
+            }
+
+            .line {
+                flex: 1;
+                height: 1px;
+                background-color: #DBDBDB;
+            }
+
+            .or-text {
+                margin: 0 18px;
+                color: #8E8E8E;
+                font-size: 13px;
+                font-weight: 600;
+            }
+
             .forgetpass {
                 display: block;
                 background: transparent; 
@@ -262,6 +281,13 @@
                 <br/>
                     <button disabled id="login">Войти</button>
                 <br/>
+                    
+                    <div class="or-container">
+                        <div class="line"></div>
+                        <div class="or-text">ИЛИ</div>
+                        <div class="line"></div>
+                    </div>
+
                     <button disabled class="forgetpass">Забыли пароль?</button>
                 <br/>
                     <button type="button" class="fb-btn">
