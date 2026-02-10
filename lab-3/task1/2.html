@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<script>
+"use strict";
+
+alert('Hello');
+alert('World');
+</script>
+
+<script>
+"use strict";
+
+alert('Hello')
+alert('World')
+</script>
+
+<!--6-->
+<script>
+"use strict";
+
+alert(3 +
+1
++ 2);
+</script>
+
+<!--it shows Hello, then 1, then 2.-->
+<script>
+"use strict";
+
+alert("Hello");
+
+[1, 2].forEach(alert);
+</script>
+
+<!-- the semicolon at the end of the first line is gone.
+If we run this code, only the first Hello shows (and there’s an error, 
+you may need to open the console to see it). There are no numbers any more.
+That’s because JavaScript does not assume a semicolon before square brackets [...]. 
+So, the code in the last example is treated as a single statement.
+-->
+<script>
+"use strict";
+
+alert("Hello")
+
+[1, 2].forEach(alert);
+</script>
+<!--Such merging in this case is just wrong. We need to put 
+a semicolon after alert for the code to work correctly.
+This can happen in other situations also.-->
+<script>
+"use strict";
+
+alert("Hello")[1, 2].forEach(alert);
+</script>
+
+<!--One-line comments start with two forward slash characters //-->
+<!--Multiline comments start with a forward slash and an asterisk /* and end with an asterisk and a forward slash */-->
+
+<!--The directive looks like a string: "use strict" or 'use strict'. 
+When it is located at the top of a script, the whole script works the “modern” way.-->
+
