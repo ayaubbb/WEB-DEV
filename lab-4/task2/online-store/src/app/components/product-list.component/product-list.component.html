@@ -1,0 +1,31 @@
+<header class="kaspi-header">
+    <div class="header-content">
+        <span class="logo">Kaspi.kz</span>
+    </div>
+</header>
+
+<div class="product-grid">
+    <div *ngFor="let product of products" class="product-card">
+        <img [src]="product.image" [alt]="product.name" class="main-image">
+        
+        <div class="gallery">
+            <img *ngFor="let img of product.images" [src]="img" 
+                 (click)="product.image = img" class="thumbnail">
+        </div>
+
+        <h3>{{ product.name }}</h3>
+        
+        <p class="description">{{ product.description }}</p>
+
+        <p class="price">{{ product.price | number }} ₸</p>
+        <div class="rating"> ⭐️{{ product.rating }}</div>
+
+        <div class="actions">
+            <a [href]="product.link" target="_blank" class="buy-btn">Купить на Kaspi</a>
+            <div class="share-buttons">
+                <button (click)="shareOnWhatsApp(product.link)" class="share-btn">WhatsApp</button>
+                <button (click)="shareOnTelegram(product.link, product.name)" class="share-btn">Telegram</button>
+            </div>
+        </div>
+    </div>
+</div>
