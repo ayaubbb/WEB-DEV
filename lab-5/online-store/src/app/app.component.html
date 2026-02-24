@@ -1,0 +1,27 @@
+<header class="kaspi-header">
+  <div class="header-content">
+    <span class="logo">Kaspi.kz</span>
+  </div>
+</header>
+
+<nav class="category-nav">
+  @for (cat of categories; track cat.id) {
+    <button 
+      class="cat-btn" 
+      [class.active]="selected_category_id === cat.id"
+      (click)="selected_category(cat.id)">
+      {{ cat.name }}
+    </button>
+  }
+</nav>
+
+<main>
+  @if (selected_category_id) {
+    <app-product-list [products]="filtered_products" 
+      (removeProduct)="handleDelete($event)"></app-product-list>
+  } @else {
+    <div class="welcome-msg">
+      <h2>Выберите категорию, чтобы увидеть товары</h2>
+    </div>
+  }
+</main>
