@@ -11,6 +11,7 @@ export interface Product {
     price: number;
     rating: number;
     likes: number;
+    isLiked? : boolean;
     image: string;
     images: string[];
     link: string;

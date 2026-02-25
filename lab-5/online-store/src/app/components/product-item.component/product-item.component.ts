@@ -14,8 +14,21 @@ export class ProductItemComponent {
   
   remove = output<number>();
 
+  get stars() {
+    const r = Math.round(this.product().rating);
+    return Array(5).fill(0).map((_, i) => i < r);
+  }
+  
   like() {
-    this.product().likes++;
+    const p = this.product();
+    if(!p.isLiked){
+      p.likes++;
+      p.isLiked = true;
+    }
+    else{
+      p.likes--;
+      p.isLiked = false;
+    }
   }
 
   delete() {

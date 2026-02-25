@@ -18,7 +18,7 @@ export class App {
   selected_category(id: number) {
     this.selected_category_id = id;
   }
-
+ 
   handleDelete(id: number) {
     this.allProducts = this.allProducts.filter(p => p.id !== id);
   }

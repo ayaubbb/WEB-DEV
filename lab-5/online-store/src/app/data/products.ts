@@ -174,7 +174,7 @@ export const PRODUCTS: Product[] = [
         name: 'LG WashTower W4W8LVPK2HM',
         description: 'Единый комплекс из стирки и сушки. Умное управление и стильный зеленый дизайн.',
         price: 1086387,
-        rating: 5.0,
+        rating: 4.3,
         likes: 0,
         image: 'https://resources.cdn-kaspi.kz/img/m/p/p3f/p5a/109065596.jpg?format=gallery-medium',
         images: [
