@@ -17,13 +17,21 @@ export class AlbumDetailComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private albumService: AlbumService) {}
 
-  ngOnInit() {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.albumService.getAlbum(id).subscribe(data => {
+ngOnInit() {
+  const id = Number(this.route.snapshot.paramMap.get('id'));
+  this.loading = true; 
+
+  this.albumService.getAlbum(id).subscribe({
+    next: (data: Album) => {
       this.album = data;
       this.loading = false;
-    });
-  }
+    },
+    error: (err: any) => {
+      console.error('Error loading album', err);
+      this.loading = false;
+    }
+  });
+}
 
   save() {
     this.albumService.updateAlbum(this.album).subscribe(() => {

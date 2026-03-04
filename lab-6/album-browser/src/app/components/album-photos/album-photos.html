@@ -1,13 +1,15 @@
 <div style="padding: 20px;">
-  <button [routerLink]="['/albums']">Back to Album</button>
-  <h2>Album Photos</h2>
-  
-  <div *ngIf="loading">Loading images...</div>
+  <button [routerLink]="['/albums', albumId]">Back to Album Details</button>
+  <h2>Photos in Album {{ albumId }}</h2>
 
-  <div class="photo-grid" *ngIf="!loading">
+  <div *ngIf="loading" style="color: blue; font-weight: bold;">
+    Loading photos...
+  </div>
+
+  <div class="grid" *ngIf="!loading">
     <div *ngFor="let photo of photos" class="photo-card">
-      <img [src]="photo.thumbnailUrl" [alt]="photo.title">
-      <p style="font-size: 11px;">{{ photo.title }}</p>
+      <img [src]="photo.thumbnailUrl" [alt]="photo.title" style="width: 150px; height: 150px;">
+      <p>{{ photo.title }}</p>
     </div>
   </div>
 </div>
