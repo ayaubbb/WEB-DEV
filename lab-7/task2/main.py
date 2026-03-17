@@ -18,8 +18,8 @@ def main():
     
     for a in animals:
         print(a)
-        print(f"sound {a.make_sound()}")
-        print(f"Legs: {a.number_of_legs()}")
+        print(f"sound {a.make_sound()}")#p
+        print(f"Legs: {a.number_of_legs()}")#p
 
 if __name__ == "__main__":
     main()
