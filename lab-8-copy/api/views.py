@@ -1,12 +1,26 @@
 from django.shortcuts import render
 from api.models import Category, Product
 from django.http import JsonResponse
-#http://127.0.0.1:8000/api/products/?min_price=400&max_price=600
+
 # Create your views here.
 def product_list(request):
     products = Product.objects.all()
-    products_json = [p.to_json() for p in products]
-    return JsonResponse(products_json, safe = False)
+    min_price = request.GET.get('min_price')
+    max_price = request.GET.get('max_price')
+    
+    if min_price:
+        products = products.filter(price__gte=min_price)
+    if max_price:
+        products = products.filter(price__lte=max_price)
+    data = []
+    for p in products:
+        data.append({
+            'id': p.id,
+            'name': p.name,
+            'price': float(p.price),
+            'count': p.count
+        })
+    return JsonResponse(data, safe=False)
 
 def product_detail(request, id):
     try:
